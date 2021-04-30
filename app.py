@@ -14,8 +14,6 @@ def success_table():
     global filename
     if request.method=="POST":
         file=request.files['file']
-        if "address" and "Address" not in df.columns:
-            return render_template("index.html", text="Please make sure that you have a address column in your CSV file!!")
         try:
             df=pandas.read_csv(file)
             gc=Nominatim(scheme='http')
